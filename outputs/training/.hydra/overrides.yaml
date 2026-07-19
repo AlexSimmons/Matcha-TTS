@@ -1,0 +1,4 @@
+- data=my_dataset
+- run_name=test_run
+- trainer.accelerator=mps
+- trainer.devices=1
