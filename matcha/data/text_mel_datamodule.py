@@ -97,6 +97,7 @@ class TextMelDataModule(LightningDataModule):
             num_workers=self.hparams.num_workers,
             pin_memory=self.hparams.pin_memory,
             shuffle=True,
+            persistent_workers=True,
             collate_fn=TextMelBatchCollate(self.hparams.n_spks),
         )
 
@@ -107,6 +108,7 @@ class TextMelDataModule(LightningDataModule):
             num_workers=self.hparams.num_workers,
             pin_memory=self.hparams.pin_memory,
             shuffle=False,
+            persistent_workers=True,
             collate_fn=TextMelBatchCollate(self.hparams.n_spks),
         )
 

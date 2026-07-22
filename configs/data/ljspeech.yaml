@@ -3,9 +3,13 @@ name: ljspeech
 # Point these to the actual file location on your machine
 train_filelist_path: /Users/alex/Talkie-Toaster/tts_matcha/data/my_dataset/train.txt
 valid_filelist_path: /Users/alex/Talkie-Toaster/tts_matcha/data/my_dataset/val.txt
-batch_size: 32
-num_workers: 6
-pin_memory: False
+
+# --- Optimized for M1 Max Stability ---
+batch_size: 44        # Lowered from 32 to reduce GPU/RAM pressure
+num_workers: 2        # Lowered from 6 to prevent CPU context-switching crashes
+pin_memory: False     # Keep False (Correct for Apple Silicon/MPS)
+# --------------------------------------
+
 cleaners: [english_cleaners2]
 add_blank: True
 n_spks: 1

@@ -162,3 +162,8 @@ g_02500000
 gradio_cached_examples/
 synth_output/
 /data
+
+generated_files/
+utterance_001.npy
+utterance_001.wav
+utterance_001.png

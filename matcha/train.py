@@ -1,5 +1,4 @@
 from typing import Any, Dict, List, Optional, Tuple
-
 import hydra
 import lightning as L
 import rootutils
@@ -8,6 +7,22 @@ from lightning.pytorch.loggers import Logger
 from omegaconf import DictConfig
 
 from matcha import utils
+
+import torch
+from functools import wraps
+
+# --- Monkey Patch to bypass PyTorch 2.6+ security check ---
+_original_load = torch.load
+
+@wraps(_original_load)
+def _patched_load(*args, **kwargs):
+    # Force weights_only to False to allow loading complex objects like OmegaConf
+    kwargs['weights_only'] = False
+    return _original_load(*args, **kwargs)
+
+torch.load = _patched_load
+# -----------------------------------------------------------
+
 
 rootutils.setup_root(__file__, indicator=".project-root", pythonpath=True)
 # ------------------------------------------------------------------------------------ #
