@@ -1,21 +1,19 @@
 # https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.callbacks.ModelCheckpoint.html
 
 model_checkpoint:
-  _target: lightning.pytorch.callbacks.ModelCheckpoint
+  _target_: lightning.pytorch.callbacks.ModelCheckpoint
   dirpath: ${paths.output_dir}/checkpoints
   filename: checkpoint_{epoch:03d}
-  # FIXED: Pointing to the actual validation metric
-  monitor: "val/loss" 
-  # FIXED: Lower loss is better
-  mode: "min" 
+  # Monitoring epoch with max mode ensures save_top_k keeps the highest (newest) epochs
+  monitor: "epoch" 
+  mode: "max" 
   verbose: True
   save_last: True
   save_top_k: 5
   auto_insert_metric_name: True
   save_weights_only: False
-  # FIXED: Setting this to 10 to ensure safety against stalls
-  every_n_epochs: 10 
-  # These were set to null/default in your original, but included here for full explicitness:
+  # Triggers a save only once every 100 epochs
+  every_n_epochs: 100 
   every_n_train_steps: null
   train_time_interval: null
   save_on_train_epoch_end: False

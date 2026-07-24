@@ -21,7 +21,7 @@ win_length: 1024
 f_min: 0
 f_max: 8000
 data_statistics:
-  mel_mean: -4.662699222564697
-  mel_std: 2.164608955383301
+  mel_mean: -4.629806995391846 
+  mel_std: 2.3919565677642822
 seed: ${seed}
 load_durations: false
