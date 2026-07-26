@@ -13,7 +13,7 @@ model_checkpoint:
   auto_insert_metric_name: True
   save_weights_only: False
   # Triggers a save only once every 100 epochs
-  every_n_epochs: 100 
+  every_n_epochs: 500 
   every_n_train_steps: null
   train_time_interval: null
   save_on_train_epoch_end: False
