@@ -69,7 +69,7 @@ def get_inputs(is_multi_speaker):
     x_lengths = torch.LongTensor([dummy_input_length])
 
     # Scales
-    temperature = 0.667
+    temperature = 0.88
     length_scale = 1.0
     scales = torch.Tensor([temperature, length_scale])
 
@@ -98,7 +98,7 @@ def main():
     )
     parser.add_argument("output", type=str, help="Path to output `.onnx` file")
     parser.add_argument(
-        "--n-timesteps", type=int, default=5, help="Number of steps to use for reverse diffusion in decoder (default 5)"
+        "--n-timesteps", type=int, default=40, help="Number of steps to use for reverse diffusion in decoder (default 40)"
     )
     parser.add_argument(
         "--vocoder-name",

@@ -98,8 +98,8 @@ def main():
     parser.add_argument(
         "--temperature",
         type=float,
-        default=0.667,
-        help="Variance of the x0 noise (default: 0.667)",
+        default=0.88,
+        help="Variance of the x0 noise (default: 0.88)",
     )
     parser.add_argument(
         "--speaking-rate",

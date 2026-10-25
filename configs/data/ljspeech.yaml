@@ -5,8 +5,8 @@ train_filelist_path: /Users/alex/Talkie-Toaster/tts_matcha/data/my_dataset/train
 valid_filelist_path: /Users/alex/Talkie-Toaster/tts_matcha/data/my_dataset/val.txt
 
 # --- Optimized for M1 Max Stability ---
-batch_size: 44        # Lowered from 32 to reduce GPU/RAM pressure
-num_workers: 2        # Lowered from 6 to prevent CPU context-switching crashes
+batch_size: 32        # Lowered from 32 to reduce GPU/RAM pressure
+num_workers: 4        # Lowered from 6 to prevent CPU context-switching crashes
 pin_memory: False     # Keep False (Correct for Apple Silicon/MPS)
 # --------------------------------------
 
@@ -21,7 +21,7 @@ win_length: 1024
 f_min: 0
 f_max: 8000
 data_statistics:
-  mel_mean: -4.629806995391846 
-  mel_std: 2.3919565677642822
+  mel_mean: -4.515193462371826
+  mel_std: 2.2583751678466797
 seed: ${seed}
 load_durations: false
